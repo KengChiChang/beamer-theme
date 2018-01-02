@@ -1,0 +1,136 @@
+%!TEX root = "../thesis-slides.tex"
+\definecolor{slight}{gray}{0.9}
+\usepackage{graphicx}
+    \graphicspath{{figures/}}
+\usecolortheme[named = Royal Blue]{structure}
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \setbeamerfont{frametitle}{size* = {18}{20}, series = \bfseries}
+    \setbeamercolor{frametitle}{bg = slight!60}
+    \begin{beamercolorbox}[wd = \paperwidth,
+                           ht = 3ex,
+                           dp = 1.2ex]
+                           {frametitle}
+        \hspace*{1.2ex}\usebeamerfont{frametitle}\insertframetitle%
+    \end{beamercolorbox}%
+}
+\setbeamertemplate{title page}{
+    \vbox{}
+    \vfill
+%    \vskip0pt plus 1filll
+    \begin{centering}
+    \setbeamerfont{title}{size* = {18}{22}, series = \bfseries}
+    \setbeamercolor{title}{bg = slight!60}
+    \hfill\begin{beamercolorbox}[rounded = true,
+                                 sep = 8pt, 
+                                 wd = 11cm,
+                                 center]
+                                 {title}
+      \usebeamerfont{title}\inserttitle
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%
+    \end{beamercolorbox}\hfill\null%
+%      {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+    \vskip1.5em\par
+    \setbeamerfont{author}{size* = {14}{16}}
+    \begin{beamercolorbox}[sep = 8pt, center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \vskip-0.5em\par % change here
+    \setbeamerfont{institute}{size* = {12}{14}, series = \itshape}
+    \begin{beamercolorbox}[sep = 8pt, center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \vskip1em\par % change here
+    \setbeamerfont{date}{size* = {14}{16}}
+    \begin{beamercolorbox}[sep = 8pt, center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+  \end{centering}
+%  \vskip0pt plus 1filll
+  \vfill
+}
+\useinnertheme{circles}
+\usepackage[no-math]{fontspec}
+\usepackage{xltxtra, xunicode}
+\usepackage[utf8]{inputenc}
+%\usepackage[sc, osf]{mathpazo}
+\usepackage[minionint, lf, mathtabular]{MinionPro}
+
+\usefonttheme{professionalfonts}
+%% 中文字配置
+\usepackage[CJKmath = true, 
+            indentfirst = false, 
+            PunctStyle = {quanjiao}, 
+            CheckSingle = true, 
+            SlantFont, 
+            BoldFont]
+            {xeCJK}
+\usepackage{fancyvrb, attachfile2, pstricks}
+\setbeamerfont{page number in head/foot}{size = \tiny}
+\setbeamertemplate{footline}[frame number]
+\usepackage{xmpmulti, booktabs, multicol}
+\setbeamertemplate{navigation symbols}{}
+\let\WriteBookmarks\relax
+\usepackage{dcolumn}
+\newcolumntype{.}[1]{D{.}{.}{#1}}
+\newcolumntype{,}[1]{D{,}{,}{#1}}
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{-}
+
+\linespread{1.25}
+
+\setbeamersize{text margin left = 0.8em, text margin right = 0.6em}
+
+\makeatletter
+\defbeamertemplate{itemize item}{mycircle}{\LARGE\raise-1.6pt\hbox{\textbullet}}
+\makeatother
+
+\setbeamertemplate{itemize item}[mycircle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setlength\leftmargini{1.3em}
+\setlength\leftmarginii{1em}
+\fboxsep=10pt
+
+\usepackage{color}
+    \definecolor{MyBrown}{rgb}{0.3,0,0}
+    \definecolor{MyBlue}{rgb}{.2,.2,.8}  
+    \definecolor{MyRed}{rgb}{0.4,0,0.1}
+    \definecolor{MyGreen}{rgb}{0,0.4,0}
+\usepackage{hyperref}
+    \hypersetup{bookmarks = true,
+                bookmarksnumbered = true,
+                colorlinks = true,
+                linkcolor = MyRed,
+                citecolor = MyBlue, % hyperref is in conflict with natbib
+                filecolor = MyBrown,
+                urlcolor = MyGreen}
+
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[para]{threeparttable}
+%\setlength{\bibsep}{-.1pt} % Reduce space between bibliographies
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ } % AER style nobreak
+\renewcommand*{\bibfont}{\footnotesize}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\usepackage{siunitx}
+\sisetup{%
+  mode = math,
+  detect-all,  
+  output-decimal-marker = {.},
+  group-separator = {,},
+  math-rm = \rmnumeric,
+  text-rm = \rmnumeric,
+}
+
+
+%\setCJKmainfont[Scale=0.9, BoldFont=Noto Sans CJK JP Bold]{Noto Sans CJK JP Medium}
+%\setCJKsansfont[Scale=0.9, BoldFont=Hiragino Sans CNS W6]{Hiragino Sans CNS W3}
+%\setCJKsansfont[Scale=0.9, BoldFont=Hiragino Sans W7]{Hiragino Sans W4}
+%\setCJKsansfont[Scale=0.9, BoldFont=Source Han Sans UI TC Bold]{Source Han Sans UI TC Regular}
+%\setCJKsansfont[Scale=0.9, BoldFont=PingFang TC Semibold]{PingFang TC Regular}
